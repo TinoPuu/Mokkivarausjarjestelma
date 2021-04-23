@@ -1,12 +1,20 @@
+//npm install cors
+//npm install express
+//npm install firebase
+//npm install supertest
+//npm install mocha
+
 var firebase = require("firebase")
 const cors = require('cors')
+
 const express = require("express");
 var request = require("request");
+path = require( 'path' );
 const app = express();
 const port = 5000;
-var numero = 6;
 
 app.use(cors());
+app.use(express.static(__dirname + '/public'));
 
 firebase.initializeApp({
     apiKey: "AIzaSyCJJa_gwZ5R1btikLTZ0jXrAgb32we8e64",
@@ -29,9 +37,20 @@ app.get("/Varaukset", (req, res) => {
 
         })
         console.log(items);
-        res.send(200,items);
+        res.status(200).send(items);
     })
 
 
 } );
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+app.get('/', function (req, res) {
+  res.render('index');
+});
+
+//app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+var server = app.listen(5000, function () {
+  var port = server.address().port;
+  console.log('Example app listening at port %s', port);
+});
+module.exports = server;
