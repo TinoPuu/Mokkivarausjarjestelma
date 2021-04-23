@@ -27,9 +27,6 @@ const Navbar = () => {
                     <NavLink to="/Mokki" activeStyle>
                          Mökki
                     </NavLink>
-                    <NavLink to="/Varaus_lomake" activeStyle>
-                         Varaus
-                    </NavLink>
                     <NavLink to="/Muut" activeStyle>
                          Muut
                     </NavLink>

@@ -6,7 +6,7 @@ import firebase from 'firebase'
 import '../App.css';
 import EventCalendar from '../comps/Kalenteri';
 import axios from "axios";
-import '../tyylit/poyta.css';
+import '../tyylit/varauspoyta.css';
 
 const Hero = ({ handleLogout }) => {
 
@@ -59,28 +59,37 @@ const Hero = ({ handleLogout }) => {
 
   return (
     <section className="hero">
-
-      <div>
-        <h1>Varaukset</h1>
-        {varaukset.map((varaus) => (
-          <table key={varaus.id}>
-            <tr>
-              <td>{varaus.nimi} </td>
-              <td>{varaus.alkm} </td>
-              <td>{varaus.loppu} </td>
-              <td>{varaus.puhelin} </td>
-            </tr>
-          </table>
-        ))}
+      <h1>Varaukset</h1>
+      <div class="ex1">
+        <table class ="poyta">
+              <tr>
+                <th>Nimi</th>
+                <th>alkupäivämäärä</th>
+                <th>loppupäivämäärä</th>
+                <th>puhnro</th>
+              </tr>
+        </table>
+        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+          {varaukset.map((varaus) => (
+            <table class="table table-bordered table-striped mb-0" key={varaus.id}>
+              <tr>
+                <td>{varaus.nimi} </td>
+                <td>{varaus.alkm} </td>
+                <td>{varaus.loppu} </td>
+                <td>{varaus.puhelin} </td>
+                </tr>
+                </table>
+          ))}
+        </div>
       </div>
-      
       <div>
-        <div className="mokin_teksti">
+        <EventCalendar/>
+      </div>
+      <div className="mokin_teksti">
           {
-
             <div className="mokkiteksti-container">
               <div class="grid-item">
-                <label>teksti</label>
+                <h6>Muuta mökin kuvausta</h6>
                 <div class="grid-item.nimi">
                   <input type="text" id="Mokki" onChange={getMokkiteksti_uusi} />
                   <p>{mokkiteksti_uusi}</p>
@@ -88,23 +97,16 @@ const Hero = ({ handleLogout }) => {
                 <button onClick={Lisays_mokkiteksti}>Päivitä teksti</button>
               </div>
             </div>
-
-
           }
-        </div>
       </div>
       <div>
-        <p>Lisää kuvia mökistä</p>
+        <h5>Lisää kuvia mökistä valitsemalla tiedosto</h5>
         <UploadForm />
-        <br />
-      </div>
-      <div>
-        <EventCalendar/>
-      </div>
-      <button onClick={handleLogout}>
+        <br/>
+        </div>
+      <button className= "kirjaudu-ulos" onClick={handleLogout} >
         kirjaudu ulos
       </button>
-
     </section>
   );
 };

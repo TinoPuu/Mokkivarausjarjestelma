@@ -35,7 +35,6 @@ function App() {
             <Switch>
             <Route path='/Kotisivu' component={Kotisivu} />
             <Route path='/Mokki' component={Mokki} />
-            <Route path='/varaus_lomake' component={Varaus_lomake} />
             <Route path='/muut' component={Muut} />
             <Route path='/Kirjautuminen' component={Kirjautuminen} />
             </Switch>

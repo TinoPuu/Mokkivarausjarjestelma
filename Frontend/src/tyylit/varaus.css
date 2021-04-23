@@ -7,8 +7,8 @@ body {
     margin: 0 auto;
     position: relative;
    display: grid;
-   max-width: 95%;
-   max-height: 95%;
+   max-width: 100%;
+   max-height: 100%;
    /*background-color:gray;*/
    padding: 80px;
    resize: both;
@@ -20,4 +20,11 @@ body {
  input {
     text-align: center;
 }
-  
+
+section{
+
+   margin-left: auto;
+   margin-right: auto;
+   padding: 1%;
+   max-width:98%;
+}

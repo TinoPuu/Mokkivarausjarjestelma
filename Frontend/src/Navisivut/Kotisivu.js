@@ -8,12 +8,15 @@ function Kotisivu() {
     return(
       
       <div className="App">
+        <div className="kotisivu">
         <div className="Hello">
         <h1>Etusivu</h1>
         <p>Tervetuloa</p>
         </div>
         <Arvioinnit/>
       </div>
+        </div>
+        
       
     )
   }

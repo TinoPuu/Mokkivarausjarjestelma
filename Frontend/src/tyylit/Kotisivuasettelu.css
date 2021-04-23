@@ -1,6 +1,6 @@
 .Hello{
-    margin: 0 auto;
-    position: relative;
+    margin: auto;
+    position:relative;
    display: grid;
    max-width: 30%;
    /*background-color:gray;*/
@@ -20,6 +20,9 @@ body {
  }
  .grid-item {
     padding: 100px;
+ }
+ .kotisivu{
+    padding-top: 30px;
  }
 
 

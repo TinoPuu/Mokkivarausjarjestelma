@@ -7,11 +7,8 @@ import { fire, projectStorage, projectFirestore, timestamp, } from "../Firebase/
 function Kalenteri(){
   const[varaukset, setVaraukset] = useState([]);
   const ref = projectFirestore.collection("Varaustiedot");
-
-
-    
-    function getVaraukset(){
-
+  
+  function getVaraukset(){
       ref.onSnapshot((querySnapshot) => {
             const items = [];
             querySnapshot.forEach((doc) =>{
@@ -26,8 +23,8 @@ function Kalenteri(){
   }, []); 
 
   return (
-    <section className="hero">
-      <div>
+    <section className="kalenteri">
+      <div className= "kalenteridivi" >
         <h1>Kalenteri</h1>
         <FullCalendar
           plugins={[ dayGridPlugin ]}
