@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Footer.css";
+import "../tyylit/Footer.css";
 import { BrowserRoute, Link, NavLink } from "react-router-dom";
 import Kirjautuminen from "../Navisivut/Kirjautuminen";
 

@@ -24,7 +24,7 @@ const Navbar = () => {
                     <NavLink to="/Kotisivu" activeStyle>
                         Koti
                     </NavLink>
-                    <NavLink to="/Kuvat" activeStyle>
+                    <NavLink to="/Mokki" activeStyle>
                          Mökki
                     </NavLink>
                     <NavLink to="/Varaus_lomake" activeStyle>

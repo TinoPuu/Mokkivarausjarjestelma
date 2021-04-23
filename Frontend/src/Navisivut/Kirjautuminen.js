@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
 import '../App.css';
 import { fire } from "../Firebase/config";
-import Login from './Login';
-import Hero from './hero';
+import Login from '../comps/Login';
+import Kirjautunut from './Kirjautunut';
 
 function Kirjautuminen() {
 
@@ -66,7 +66,7 @@ function Kirjautuminen() {
   return (
     <div className="App">
       {user? (
-        <Hero handleLogout={handleLogout}/>
+        <Kirjautunut handleLogout={handleLogout}/>
       ):(
       <Login
         email={email}

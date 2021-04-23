@@ -1,6 +1,6 @@
 import React from 'react';
-import Kotisivuasettelu from "../Navisivut/Kotisivuasettelu.css";
-import Kotisivuextension from "./Kotisivuextension";
+import Kotisivuasettelu from "../tyylit/Kotisivuasettelu.css";
+import Arvioinnit from "../comps/Arvioinnit";
 
 
 function Kotisivu() {
@@ -12,7 +12,7 @@ function Kotisivu() {
         <h1>Etusivu</h1>
         <p>Tervetuloa</p>
         </div>
-        <Kotisivuextension/>
+        <Arvioinnit/>
       </div>
       
     )

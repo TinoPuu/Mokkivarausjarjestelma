@@ -1,7 +1,7 @@
 
 import firebase from "firebase/app";
 import React, { useState, useEffect } from 'react';
-import "./muutTyyli.css";
+import "../tyylit/muutTyyli.css";
 
 
 

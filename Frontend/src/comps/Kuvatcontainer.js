@@ -1,7 +1,7 @@
 import '../App.css';
 import { fire, projectStorage, projectFirestore, timestamp, } from "../Firebase/config";
 import React,{useState,useEffect} from 'react';
-import UploadForm from '../comps/UploadForm';
+import UploadForm from './UploadForm';
 import firebase from 'firebase'
 import '../App.css';
 // tämä on Mökki (Kuvat sivujen text grid-container versio alpha 0.011)

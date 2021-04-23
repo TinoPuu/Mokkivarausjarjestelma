@@ -2,8 +2,8 @@ import React, { } from "react";
 import ".//App.css";
 import { BrowserRouter } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Kuvat from "./Navisivut/Kuvat";
-import Navbar from "./Navisivut/Navbar";
+import Mokki from "./Navisivut/Mokki";
+import Navbar from "./comps/Navbar";
 import Varaus_lomake from "./Navisivut/Varaus_lomake";
 import Footer from "./comps/Footer";
 import Muut from "./Navisivut/Muut";
@@ -34,7 +34,7 @@ function App() {
             <Navbar />
             <Switch>
             <Route path='/Kotisivu' component={Kotisivu} />
-            <Route path='/kuvat' component={Kuvat} />
+            <Route path='/Mokki' component={Mokki} />
             <Route path='/varaus_lomake' component={Varaus_lomake} />
             <Route path='/muut' component={Muut} />
             <Route path='/Kirjautuminen' component={Kirjautuminen} />

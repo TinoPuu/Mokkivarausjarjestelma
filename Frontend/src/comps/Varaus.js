@@ -1,8 +1,8 @@
 import React, { Component, useState, useEffect } from 'react';
 import { fire, projectStorage, projectFirestore, timestamp } from "../Firebase/config";
-import varaus from '../Navisivut/varaus.css';
+import varaus from '../tyylit/varaus.css';
 import '../App.css';
-import EventCalendar from './EventCalendar';
+import Kalenteri from "./Kalenteri";
 
 function Varaus() {
 
@@ -75,7 +75,6 @@ function Varaus() {
         varaukset && varaukset.map(varaus => {
           return (
             <div className="varaus-container">
-              <EventCalendar/>
               <div class="grid-item">
               <h5>Tee varaus:</h5> 
                   <label>Nimi</label>

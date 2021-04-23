@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import UploadForm from '../comps/UploadForm';
 import ImageGrid from '../comps/ImageGrid';
 import Modal from '../comps/Modal';
-import Kuvatcontainer from '../Navisivut/Kuvatcontainer';
-import Kuvattyyli from '../Navisivut/Kuvattyyli.css';
-import Varaus_lomake from '../Navisivut/Varaus_lomake';
+import Kuvatcontainer from '../comps/Kuvatcontainer';
+import Kuvattyyli from '../tyylit/Kuvattyyli.css';
+import Varaus_lomake from './Varaus_lomake';
 
-function Kuvat() {
+function Mokki() {
   const [selectedImg, setSelectedImg] = useState(null);
   return(
     <div className="App">
@@ -22,4 +22,4 @@ function Kuvat() {
   )
 }
 
-export default Kuvat;
+export default Mokki;

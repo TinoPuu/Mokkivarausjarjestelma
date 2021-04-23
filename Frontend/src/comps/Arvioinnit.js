@@ -1,9 +1,9 @@
 import '../App.css';
 import React, { useState } from 'react';
-import Kotisivuasettelu from "../Navisivut/Kotisivuasettelu.css";
+import Kotisivuasettelu from "../tyylit/Kotisivuasettelu.css";
 
 // tämä on Mökki (Kuvat sivujen text grid-container versio alpha 0.011)
-function Kotisivuextension() {
+function Arvioinnit() {
     return (
         <div className="grid-palaute">
             <div class="grid-item">
@@ -16,4 +16,4 @@ function Kotisivuextension() {
 
     )
 }
-export default Kotisivuextension;
+export default Arvioinnit;

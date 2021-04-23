@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import UploadForm from '../comps/UploadForm';
 import firebase from 'firebase'
 import '../App.css';
-import EventCalendar from './EventCalendar';
+import EventCalendar from '../comps/Kalenteri';
 import axios from "axios";
 
 const Hero = ({ handleLogout }) => {
