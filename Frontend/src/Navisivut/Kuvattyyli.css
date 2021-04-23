@@ -1,0 +1,18 @@
+
+body {
+   background-color:rgba(226, 226, 226, 0.712);
+}
+/* tämä on Kuvatcontainerin css tiedosto*/
+.grid-container { 
+  display: grid;
+  grid-row: template columns 50%;
+  padding: 50px;
+  max-width: 50%;
+  margin: 0 auto;
+}
+/* tämä on Kuvatcontainerin css tiedosto*/
+.grid-item {
+  background-color:white;
+/*  border: 1px solid rgba(0, 0, 0, 0.8); */
+  text-align: center;
+}

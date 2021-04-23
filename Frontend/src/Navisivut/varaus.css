@@ -1,0 +1,23 @@
+
+body {
+    background-color:rgba(226, 226, 226, 0.712);
+ }
+ /* tämä on Kuvatcontainerin css tiedosto*/
+ .varaus-container { 
+    margin: 0 auto;
+    position: relative;
+   display: grid;
+   max-width: 95%;
+   max-height: 95%;
+   /*background-color:gray;*/
+   padding: 80px;
+   resize: both;
+ }
+ /* tämä on Kuvatcontainerin css tiedosto*/
+ .grid-item {
+    padding: 60px;
+ }
+ input {
+    text-align: center;
+}
+  

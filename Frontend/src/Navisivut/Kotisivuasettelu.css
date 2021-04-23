@@ -1,0 +1,25 @@
+.Hello{
+    margin: 0 auto;
+    position: relative;
+   display: grid;
+   max-width: 30%;
+   /*background-color:gray;*/
+   padding: 30px;
+   background-color: white;
+}
+body {
+    background-color:rgba(226, 226, 226, 0.712);
+ }
+ /* tämä on Kuvatcontainerin css tiedosto*/
+ .grid-palaute { 
+    margin: 0 auto;
+    position: relative;
+   display: grid;
+   max-width: 70%;
+   padding: 50px;
+ }
+ .grid-item {
+    padding: 100px;
+ }
+
+
