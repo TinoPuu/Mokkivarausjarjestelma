@@ -24,23 +24,6 @@ const ImageGrid = ({ setSelectedImg }) => {
             ))}
         </div>
     )
-
-    /*
-    const ImageGrid = ({ setSelectedImg }) => {
-     const { docs } = useFirestore('images');
-     return (
-         <div className="img-grid">
-             {docs && docs.map(doc => (
- 
- 
-                 <img src={doc.url} alt="Uploaded-picture" />
-                       
-              
-     ))
- }
-         </div >
-     )
-     */
 }
 
 export default ImageGrid;

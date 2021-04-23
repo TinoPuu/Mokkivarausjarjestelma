@@ -4,72 +4,6 @@ import varaus from '../Navisivut/varaus.css';
 import '../App.css';
 import EventCalendar from './EventCalendar';
 
-
-/*class Varaus extends Component{
-
-    state={
-      text : ""
-    }
-  
-    handleText1=e=>{
-      this.setState({
-         text1 : e.target.value
-      })
-      this.handleTextCompleteEdition();
-    }
-    handleText2=e=>{
-      this.setState({
-         text2 : e.target.value
-      })
-      this.handleTextCompleteEdition();
-    }
-    handleText3=e=>{
-      this.setState({
-         text3 : e.target.value
-      })
-      this.handleTextCompleteEdition();
-    }
-    handleTextCompleteEdition=e=>{
-      this.setState({
-         textComplete : (this.state.text1 + "," + this.state.text2 + "," + this.state.text3)
-      })
-    }
-    
-  
-    handleSubmit=e=>{
-      //this.handleTextCompleteEdition();
-      let messageRef = fire.database().ref('messages').orderByKey().limitToLast(100);
-      fire.database().ref('messages').push(this.state.textComplete);
-      this.setState({
-        text : ""
-      })
-    }
-    
-  
-  
-  
-    render(){
-      return (
-        <div className="App-header">
-          <label>Tee varaus:</label>
-          <br/>
-          <label>Ajanjakso</label>
-          <br/>
-          <input type="text" onChange={this.handleText1} id="inputText"/>
-          <br/>
-          <label>Nimi</label>
-          <br/>
-          <input type="text" onChange={this.handleText2} id="Nimi"/>
-          <br/>
-          <label>Puhelinnumero</label>
-          <br/>
-          <input type="text" onChange={this.handleText3} id="Puhelin"/>
-          <br/>
-          <button onClick={this.handleSubmit}>Tee varaus</button>      
-        </div>
-      );
-    }
-  }*/
 function Varaus() {
 
   const [name, setName] = useState(null)
@@ -108,7 +42,6 @@ function Varaus() {
 
 
   function Lisays() {
-    //String id = projectFirestore.collection("collection_name").document().getId();
     projectFirestore.collection("Varaukset").doc().set({
       nimi: name,
       puhelin: puh,
@@ -135,7 +68,6 @@ function Varaus() {
         });
 
   }
-
 
   return (
     <div className="App">

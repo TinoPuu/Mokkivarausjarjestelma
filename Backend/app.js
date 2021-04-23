@@ -1,14 +1,10 @@
-
-
 var firebase = require("firebase")
 const cors = require('cors')
-
 const express = require("express");
 var request = require("request");
 const app = express();
 const port = 5000;
 var numero = 6;
-
 
 app.use(cors());
 
@@ -38,29 +34,4 @@ app.get("/Varaukset", (req, res) => {
 
 
 } );
-
-
-
-
-
-
-
-
-
-/*function Lisays_mokkiteksti() {
-    //String id = projectFirestore.collection("collection_name").document().getId();
-    projectFirestore.collection("Mokkiteksti").doc("RYY1oBpq5JTlp2xT6TbZ").update({
-      teksti: "testi",
-    })
-      .then(() => {
-        console.log("Document successfully written!");
-      })
-      .catch((error) => {
-        console.error("Error writing document: ", error);
-      });
-      return(
-          teksti
-      )
-  }*/
-
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

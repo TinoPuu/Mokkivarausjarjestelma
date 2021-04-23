@@ -4,13 +4,7 @@ import React,{useState,useEffect} from 'react';
 import UploadForm from '../comps/UploadForm';
 import firebase from 'firebase'
 import '../App.css';
-import EventCalendar from './EventCalendar';
-
-
-
-
-
- // tämä on Mökki (Kuvat sivujen text grid-container versio alpha 0.011)
+// tämä on Mökki (Kuvat sivujen text grid-container versio alpha 0.011)
 function Kuvatcontainer() {
 
 const[mokki, setMokki] = useState([]);

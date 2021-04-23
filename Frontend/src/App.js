@@ -40,16 +40,10 @@ function App() {
             <Route path='/Kirjautuminen' component={Kirjautuminen} />
             </Switch>
           </BrowserRouter>
-
-      
-
-          
-        </div>
+          </div>
       </Router>
-      
       <Footer />
-
-    </div>
+      </div>
   );
 
 
