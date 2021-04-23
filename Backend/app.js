@@ -1,4 +1,6 @@
-
+//npm install cors
+//npm install express
+//npm install firebase
 
 var firebase = require("firebase")
 const cors = require('cors')
