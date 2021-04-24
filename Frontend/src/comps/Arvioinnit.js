@@ -23,14 +23,38 @@ function Arvioinnit() {
             .catch((error) => {
               console.error("Error writing document: ", error);
             });
-    }  
+    }
+    
+
+
+const[arv, setArv] = useState([]);
+const ref = projectFirestore.collection("H_Arvostelut");
+
+function getArv(){
+  ref.onSnapshot((querySnapshot) => {
+      const items = [];
+      querySnapshot.forEach((doc) =>{
+          items.push(doc.data());
+        })
+      setArv(items);
+  })
+}
+
+useEffect(() => {
+  getArv();
+}, []); 
 
     return (
         <div className="grid-palaute">
-            <div class="grid-item">
-                <h2>Feedback</h2>
-                <p>"Hyvä mökki hienolla paikalla. Suosittelen mökkiä varsinkin talviaikaan!"</p>
-            </div>
+
+          <h1>Feedback</h1>  
+        
+            {arv.map((arvostelu_teksti) => (
+                <div key={arvostelu_teksti.id}>
+                    <p>{arvostelu_teksti.teksti}</p>
+                </div>
+            ))}
+              
             <div>
             <input type="text" id="Aika2" onChange={getArvosteluteksti} />
                 <button onClick={Arvostelu_lisays}>Lähetä uusi arvostelu!</button>
