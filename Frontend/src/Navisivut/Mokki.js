@@ -2,7 +2,7 @@ import '../App.css';
 import React, { useState } from 'react';
 import ImageGrid from '../comps/ImageGrid';
 import Modal from '../comps/Modal';
-import Kuvatcontainer from '../comps/Kuvatcontainer';
+import Mokkicontainer from '../comps/Mokkicontainer';
 import '../tyylit/Kuvattyyli.css';
 import Varaus_lomake from './Varaus_lomake';
 
@@ -12,7 +12,7 @@ function Mokki() {
     <div className="App">
       <section>
       <h1>Tahkon mökki</h1>
-      <Kuvatcontainer/>
+      <Mokkicontainer/>
       <ImageGrid setSelectedImg={setSelectedImg} />
       { selectedImg && (
         <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />

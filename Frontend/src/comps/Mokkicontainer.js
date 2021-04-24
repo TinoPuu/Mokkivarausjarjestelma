@@ -3,7 +3,7 @@ import { fire, projectStorage, projectFirestore, timestamp, } from "../Firebase/
 import React,{useState,useEffect} from 'react';
 import '../App.css';
 // tämä on Mökki (Kuvat sivujen text grid-container versio alpha 0.011)
-function Kuvatcontainer() {
+function Mokkicontainer() {
 
 const[mokki, setMokki] = useState([]);
 const ref = projectFirestore.collection("Mokkiteksti");
@@ -34,4 +34,4 @@ useEffect(() => {
   )
 }
 
-export default Kuvatcontainer;
+export default Mokkicontainer;
