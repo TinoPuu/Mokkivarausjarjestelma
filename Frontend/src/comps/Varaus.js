@@ -45,8 +45,8 @@ function Varaus() {
     projectFirestore.collection("Varaukset").doc().set({
       nimi: name,
       puhelin: puh,
-      alkm: addrs,
-      loppu: addrs2
+      start: addrs,
+      end: addrs2
     })
       .then(() => {
         console.log("Document successfully written!");
@@ -54,20 +54,7 @@ function Varaus() {
       .catch((error) => {
         console.error("Error writing document: ", error);
       });
-
-      projectFirestore.collection("Varaustiedot").doc().set({
-        nimi: name,
-        start: addrs,
-        end: addrs2
-      })
-        .then(() => {
-          console.log("Document successfully written!");
-        })
-        .catch((error) => {
-          console.error("Error writing document: ", error);
-        });
-
-  }
+    }
 
   return (
     <div className="App">

@@ -52,6 +52,16 @@ const Hero = ({ handleLogout }) => {
       setVaraukset(response.data);
     })
   }
+
+  function poista(poistettavannimi){
+    console.log(poistettavannimi)
+    var jobskill_query = projectFirestore.collection('Varaukset').where('nimi','==',poistettavannimi);
+    jobskill_query.get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        doc.ref.delete();
+      });
+    });
+  }
   
   useEffect(() => {
     getVaraukset();
@@ -67,16 +77,20 @@ const Hero = ({ handleLogout }) => {
                 <th>alkupäivämäärä</th>
                 <th>loppupäivämäärä</th>
                 <th>puhnro</th>
+                
               </tr>
         </table>
+        
         <div class="table-wrapper-scroll-y my-custom-scrollbar">
           {varaukset.map((varaus) => (
             <table class="table table-bordered table-striped mb-0" key={varaus.id}>
               <tr>
                 <td>{varaus.nimi} </td>
-                <td>{varaus.alkm} </td>
-                <td>{varaus.loppu} </td>
+                <td>{varaus.start} </td>
+                <td>{varaus.end} </td>
                 <td>{varaus.puhelin} </td>
+                <button onClick={() => poista(varaus.nimi)}>
+                  Poista</button>
                 </tr>
                 </table>
           ))}

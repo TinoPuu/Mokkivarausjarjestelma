@@ -6,7 +6,7 @@ import { fire, projectStorage, projectFirestore, timestamp, } from "../Firebase/
 
 function Kalenteri(){
   const[varaukset, setVaraukset] = useState([]);
-  const ref = projectFirestore.collection("Varaustiedot");
+  const ref = projectFirestore.collection("Varaukset");
   
   function getVaraukset(){
       ref.onSnapshot((querySnapshot) => {
