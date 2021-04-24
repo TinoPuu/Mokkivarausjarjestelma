@@ -29,11 +29,12 @@ function App() {
     <div className="page-container">
 
       <Router>
+      
         <div className="content-wrap">
           <BrowserRouter>
             <Navbar />
             <Switch>
-            <Route path='/Kotisivu' component={Kotisivu} />
+            <Route path='/Kotisivu' component={Kotisivu}  />
             <Route path='/Mokki' component={Mokki} />
             <Route path='/muut' component={Muut} />
             <Route path='/Kirjautuminen' component={Kirjautuminen} />
