@@ -27,21 +27,31 @@ firebase.initializeApp({
 }) 
 
 const projectFirestore = firebase.firestore();
-const ref = projectFirestore.collection("Varaukset");
+
 app.get("/Varaukset", (req, res) => {
+  const ref = projectFirestore.collection("Varaukset");
     ref.onSnapshot((querySnapshot) => {
         const items = [];
         querySnapshot.forEach((doc) =>{
             items.push(doc.data());
-
-
-        })
+          })
         console.log(items);
         res.status(200).send(items);
     })
+  } );
 
-
-} );
+  
+  app.get("/Arvostelut", (req, res) => {
+    const ref = projectFirestore.collection("Arvostelut");
+      ref.onSnapshot((querySnapshot) => {
+          const items = [];
+          querySnapshot.forEach((doc) =>{
+              items.push(doc.data());
+            })
+          console.log(items);
+          res.status(200).send(items);
+      })
+    } );
 
 app.get('/', function (req, res) {
   res.render('index');

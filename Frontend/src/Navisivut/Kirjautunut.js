@@ -11,6 +11,7 @@ import '../tyylit/varauspoyta.css';
 const Hero = ({ handleLogout }) => {
 
   const [varaukset, setVaraukset] = useState([]);
+  const [arvostelut, setArvostelut] = useState([]);
   const [mokkiteksti, setMokkiteksti] = useState([null]);
   const [mokkiteksti_uusi, setMokkiteksti_uusi] = useState(null)
 
@@ -44,16 +45,24 @@ const Hero = ({ handleLogout }) => {
       });
     }
   
-  const ref = projectFirestore.collection("Varaukset");
+  
 
   function getVaraukset() {
-    console.log("testi");
+    const ref = projectFirestore.collection("Varaukset");
     axios.get("http://localhost:5000/Varaukset").then(function (response) {
       setVaraukset(response.data);
     })
   }
+  function getArvostelut() {
+    const ref = projectFirestore.collection("Arvostelut");
+    axios.get("http://localhost:5000/Arvostelut").then(function (response) {
+      setArvostelut(response.data);
+    })
+    console.log("hakee arvostelut");
+    console.log(arvostelut);
+  }
 
-  function poista(poistettavannimi){
+  function poistavaraus(poistettavannimi){
     console.log(poistettavannimi)
     var jobskill_query = projectFirestore.collection('Varaukset').where('nimi','==',poistettavannimi);
     jobskill_query.get().then(function(querySnapshot) {
@@ -62,8 +71,17 @@ const Hero = ({ handleLogout }) => {
       });
     });
   }
+  function poistaarvostelu(teksti){
+    var jobskill_query = projectFirestore.collection('Arvostelut').where('nimi','==',teksti);
+    jobskill_query.get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        doc.ref.delete();
+      });
+    });
+  }
   
   useEffect(() => {
+    getArvostelut();
     getVaraukset();
   }, []);
 
@@ -77,7 +95,6 @@ const Hero = ({ handleLogout }) => {
                 <th>alkupäivämäärä</th>
                 <th>loppupäivämäärä</th>
                 <th>puhnro</th>
-                
               </tr>
         </table>
         
@@ -89,17 +106,31 @@ const Hero = ({ handleLogout }) => {
                 <td>{varaus.start} </td>
                 <td>{varaus.end} </td>
                 <td>{varaus.puhelin} </td>
-                <button onClick={() => poista(varaus.nimi)}>
-                  Poista</button>
-                </tr>
-                </table>
+                <td><button onClick={() => poistavaraus(varaus.nimi)}>Poista</button></td>
+              </tr>
+            </table>
           ))}
         </div>
+
       </div>
+
       <div>
         <EventCalendar/>
       </div>
-      <div className="mokin_teksti">
+        <h1>Uudet Arvostelut</h1>
+      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+          {arvostelut.map((arvostelut) => (
+            <table class="table table-bordered table-striped mb-0" key={arvostelut.id}>
+              <tr>
+                <td>{arvostelut.teksti}</td>
+                <td><button onClick={() => poistaarvostelu(arvostelut.teksti)}>Lisää</button></td>
+                <td><button onClick={() => poistaarvostelu(arvostelut.teksti)}>Poista</button></td>
+              </tr>
+            </table>
+          ))}
+        </div>
+
+        <div className="mokin_teksti">
           {
             <div className="mokkiteksti-container">
               <div class="grid-item">
