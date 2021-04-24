@@ -43,6 +43,19 @@ const Hero = ({ handleLogout }) => {
       .catch((error) => {
         console.error("Error writing document: ", error);
       });
+  }
+
+  function hyvaksyttyarvostelu(teksti){
+    projectFirestore.collection("H_Arvostelut").doc().set({
+      teksti: teksti,
+    })
+      .then(() => {
+        console.log("Document successfully written!");
+      })
+      .catch((error) => {
+        console.error("Error writing document: ", error);
+      });
+      poistaarvostelu(teksti);
     }
   
   
@@ -72,7 +85,7 @@ const Hero = ({ handleLogout }) => {
     });
   }
   function poistaarvostelu(teksti){
-    var jobskill_query = projectFirestore.collection('Arvostelut').where('nimi','==',teksti);
+    var jobskill_query = projectFirestore.collection('Arvostelut').where('teksti','==',teksti);
     jobskill_query.get().then(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {
         doc.ref.delete();
@@ -123,8 +136,8 @@ const Hero = ({ handleLogout }) => {
             <table class="table table-bordered table-striped mb-0" key={arvostelut.id}>
               <tr>
                 <td>{arvostelut.teksti}</td>
-                <td><button onClick={() => poistaarvostelu(arvostelut.teksti)}>Lisää</button></td>
                 <td><button onClick={() => poistaarvostelu(arvostelut.teksti)}>Poista</button></td>
+                <td><button onClick={() => hyvaksyttyarvostelu(arvostelut.teksti)}>Lisää</button></td>
               </tr>
             </table>
           ))}
