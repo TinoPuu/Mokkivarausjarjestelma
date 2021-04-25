@@ -1,5 +1,4 @@
-import '../App.css';
-import Kotisivuasettelu from "../tyylit/Kotisivuasettelu.css";
+import '../tyylit/Kotisivuasettelu.css';
 import React, { Component, useState, useEffect } from 'react';
 import { fire, projectStorage, projectFirestore, timestamp } from "../Firebase/config";
 
@@ -45,21 +44,23 @@ useEffect(() => {
 }, []); 
 
     return (
-        <div className="grid-palaute">
-
-          <h1>Feedback</h1>  
-        
-            {arv.map((arvostelu_teksti) => (
-                <div key={arvostelu_teksti.id}>
-                    <p>{arvostelu_teksti.teksti}</p>
-                </div>
-            ))}
-              
-            <div>
-            <input type="text" id="Aika2" onChange={getArvosteluteksti} />
-                <button onClick={Arvostelu_lisays}>Lähetä uusi arvostelu!</button>
+    
+      <div className="laatikko">
+      
+      <div className="arvostelut">
+      <h1>Arvostelut</h1> 
+      {arv.map((arvostelu_teksti) => (
+            <div key={arvostelu_teksti.id}>
+                <h5 className="arvostelutteksti">{arvostelu_teksti.teksti}</h5>
+                
             </div>
+        ))}
+        <input type="text" id="Aika2" onChange={getArvosteluteksti} />
+        <button onClick={Arvostelu_lisays}>Lähetä uusi arvostelu!</button>
         </div>
+        
+      </div>
+    
     )
 }
 

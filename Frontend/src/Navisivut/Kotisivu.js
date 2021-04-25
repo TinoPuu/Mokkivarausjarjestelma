@@ -1,5 +1,5 @@
 import React from 'react';
-import Kotisivuasettelu from "../tyylit/Kotisivuasettelu.css";
+import  "../tyylit/Kotisivuasettelu.css";
 import Arvioinnit from "../comps/Arvioinnit";
 
 
@@ -9,11 +9,15 @@ function Kotisivu() {
       
       <div className="App">
         <div className="kotisivu">
+        <div className="laatikko">
         <div className="Hello">
+          
         <h1>Etusivu</h1>
         <p>Tervetuloa</p>
         </div>
-        <Arvioinnit/>
+       
+      </div>
+      <Arvioinnit/>
       </div>
         </div>
         
