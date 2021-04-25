@@ -8,9 +8,10 @@ function Varaus() {
 
   const [name, setName] = useState(null)
   const [puh, setPuh] = useState(null)
+  const [sposti, setSposti] = useState(null)
   const [start, setStart] = useState(null)
   const [end, setEnd] = useState(null)
-
+  
   const [varaukset, setVaraukset] = useState([])
   const fetchVaraukset = async () => {
     const response = projectFirestore.collection('Varaukset');
@@ -31,12 +32,16 @@ function Varaus() {
     setPuh(val.target.value)
     console.warn(val.target.value)
   }
+  function getSposti(val) {
+    setSposti(val.target.value)
+    console.warn(val.target.value)
+  }
   function getEnd(val) {
-    setStart(val.target.value)
+    setEnd(val.target.value)
     console.warn(val.target.value)
   }
   function getStart(val) {
-    setEnd(val.target.value)
+    setStart(val.target.value)
     console.warn(val.target.value)
   }
 
@@ -45,6 +50,7 @@ function Varaus() {
     projectFirestore.collection("Varaukset").doc().set({
       nimi: name,
       puhelin: puh,
+      sposti: sposti,
       start: start,
       end: end
     })
@@ -72,14 +78,19 @@ function Varaus() {
                   <div class = "grid-item.Puh">  
                 <input type="text" id="Puh" onChange={getPuh} />
                   </div>
+                  <label>Sähköposti</label>
+                  <div class = "grid-item.Osoite">  
+                <input type="text" id="Sposti" onChange={getSposti} />
+                  </div>
                   <label>Alkupäivämäärä</label>
                   <div class = "grid-item.Osoite">  
-                <input type="text" id="Aika" onChange={getStart} />
+                <input type="text" id="Alku" onChange={getStart} />
                   </div>
                   <label>Loppupäivämäärä</label>
                   <div class = "grid-item.Osoite">  
-                <input type="text" id="Aika2" onChange={getEnd} />
+                <input type="text" id="Loppu" onChange={getEnd} />
                   </div>
+                  
                 <button onClick={Lisays}>Tee uusi varaus</button>
               </div>
             </div>

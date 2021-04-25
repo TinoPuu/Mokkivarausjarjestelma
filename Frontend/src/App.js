@@ -9,6 +9,7 @@ import Footer from "./comps/Footer";
 import Muut from "./Navisivut/Muut";
 import Kirjautuminen from "./Navisivut/Kirjautuminen";
 import Kotisivu from "./Navisivut/Kotisivu";
+import Tietoameista from "./Navisivut/Tietoameista";
 
 
 
@@ -32,12 +33,13 @@ function App() {
       
         <div className="content-wrap">
           <BrowserRouter>
-            <Navbar />
+            <Navbar/>
             <Switch>
-            <Route path='/Kotisivu' component={Kotisivu}  />
+            <Route exact path='/' component={Kotisivu}  />
             <Route path='/Mokki' component={Mokki} />
             <Route path='/muut' component={Muut} />
             <Route path='/Kirjautuminen' component={Kirjautuminen} />
+            <Route path='/Tietoameista' component={Tietoameista} />
             </Switch>
           </BrowserRouter>
           </div>

@@ -21,14 +21,14 @@ const Navbar = () => {
                 </NavHeader>
                 <Bars />
                 <NavMenu>
-                    <NavLink to="/Kotisivu" activeStyle>
-                        Koti
-                    </NavLink>
                     <NavLink to="/Mokki" activeStyle>
                          Mökki
                     </NavLink>
                     <NavLink to="/Muut" activeStyle>
-                         Muut
+                         Muut tuotteet
+                    </NavLink>
+                    <NavLink to="/Tietoameista" activeStyle>
+                         Tietoja meistä
                     </NavLink>
                 </NavMenu>
 

@@ -138,9 +138,11 @@ const Hero = ({ handleLogout }) => {
         <table class ="poyta">
               <tr>
                 <th>Nimi</th>
-                <th>alkupäivämäärä</th>
-                <th>loppupäivämäärä</th>
                 <th>puhnro</th>
+                <th>Sähköposti</th>
+                <th></th>
+                <th>Aikaväli</th>
+                <th></th>
               </tr>
         </table>
         
@@ -149,18 +151,19 @@ const Hero = ({ handleLogout }) => {
             <table class="table table-bordered table-striped mb-0" key={varaus.id}>
               <tr>
                 <td>{varaus.nimi} </td>
-                <td>{varaus.start} </td>
-                <td>{varaus.end} </td>
                 <td>{varaus.puhelin} </td>
+                <td>{varaus.sposti} </td>
+                <td></td>
+                
+                <td>Alku: {varaus.start} Loppu: {varaus.end} </td>
                 <td><button onClick={() => poistavaraus(varaus.nimi)}>Poista</button></td>
               </tr>
             </table>
           ))}
         </div>
-
       </div>
 
-      <div>
+      <div className="kalenteri">
         <EventCalendar/>
       </div>
         <h1>Uudet Arvostelut</h1>
