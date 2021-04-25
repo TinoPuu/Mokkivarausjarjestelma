@@ -9,17 +9,20 @@ function Kotisivu() {
       
       <div className="App">
         <div className="kotisivu">
-        <div className="laatikko">
-        <div className="Hello">
-          
-        <h1>Etusivu</h1>
-        <p>Tervetuloa</p>
+          <div className="laatikko">
+            <div className="Hello">
+              <h1>Etusivu</h1>
+              <p>Tervetuloa</p>
+            </div>
+          </div>
+          <div className="laatikko">
+            <div className="yritysinfo">
+              <p>Tähän tulee yrityksen tietoja</p>
+            </div>
+          </div>
+          <Arvioinnit/>
         </div>
-       
       </div>
-      <Arvioinnit/>
-      </div>
-        </div>
         
       
     )

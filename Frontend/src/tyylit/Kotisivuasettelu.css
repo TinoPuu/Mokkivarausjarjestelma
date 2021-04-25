@@ -27,15 +27,14 @@ body {
  .laatikko{
    padding-top: 30px;
    padding-bottom: 30px;
-   padding-left: 5%;
-   padding-right: 5%;
+   padding-left: 15%;
+   padding-right: 15%;
 }
 .arvostelut{
    margin: auto;
     position:relative;
    display: grid;
    max-width: 1600px;
-   /*background-color:gray;*/
    padding-top: 30px;
    padding-bottom: 30px;
    padding-left: 5%;
@@ -45,6 +44,17 @@ body {
 .arvostelutteksti{
    background-color:whitesmoke;
    font-family:Arial, Helvetica, sans-serif;
+}
+.yritysinfo{
+   margin: auto;
+    position:relative;
+   display: grid;
+   max-width: 1600px;
+   padding-top: 30px;
+   padding-bottom: 30px;
+   padding-left: 5%;
+   padding-right: 5%;
+   background-color: white;
 }
 
 

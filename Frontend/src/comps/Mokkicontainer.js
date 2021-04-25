@@ -27,7 +27,7 @@ useEffect(() => {
               
             {mokki.map((mokin_teksti) => (
                 <div key={mokin_teksti.id}>
-                    <p>{mokin_teksti.teksti}</p>
+                    <h6>{mokin_teksti.teksti}</h6>
                 </div>
             ))}
     </div>
