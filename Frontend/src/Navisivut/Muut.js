@@ -1,59 +1,45 @@
-
-import firebase from "firebase/app";
 import React, { useState, useEffect } from 'react';
-import "../tyylit/muutTyyli.css";
+import { fire, projectStorage, projectFirestore, timestamp, } from "../Firebase/config";
+import '../tyylit/muut.css';
 
-
-
-
-const Muut = () => {
-
-return(
-    <div className="grid">
-    <div className="item1">
-    <h4>Peräkärry</h4>
-    <img src="https://top-mainokset.net/images/adspic/pic-201708074040-5698935.jpg"></img>
-    <p>Hinta: 20e/päivä</p>
-    </div>
-
-    <div className="item2">
-    <h4>Pakettiauto</h4>
-    <img src="https://www.nettiauto.com/extra/images/mercedes-benz-vito-2.jpg"></img>
-    <p>Uusi MB Vito</p>
-    </div>
-</div>
-
-
-)
-
-/*const db = firebase.firestore(); //yhteys firestore collectioniin
-    const [tuotteet, setTuotteet] = useState([])
-    const haeTiedot = async () => {
-        const response = db.collection('tuotteet');
-        const data = await response.get(); //odottaa vastausta ja tallentaa sen dataan
-        data.docs.forEach(item => {
-            setTuotteet([tuotteet, item.data()])
-        })
+function Muut() {
+    const[tuotteet, setTuotteet] = useState([]);
+    
+    function haetuotteet(){
+        const ref = projectFirestore.collection("MuutTuotteet");
+        ref.onSnapshot((querySnapshot) => {
+            const items = [];
+            querySnapshot.forEach((doc) =>{
+              items.push(doc.data());
+            })
+            setTuotteet(items);
+      })
     }
+    
     useEffect(() => {
-        haeTiedot();
+        haetuotteet();
     }, [])
-
-    return (
-
-        <div className="Tuotteet">
-            {
-                tuotteet.map(tuote => {
-                    return (
-                        <div className="tuote-sisalto">
-                            <h4>{tuote.nimi}</h4>
-                            <img src={tuote.kuva}></img>
-                            <p>{tuote.tiedot}</p>
-                        </div>
-                    )
-                })
-            }
-        </div>
-    );*/
-}
-export default Muut;
+    
+    return(
+        <section classname="muutlaatikko">
+            <div>
+                <div>
+                    <h1 classname="otsikko">Muut tuotteet</h1>
+                {tuotteet.map((tuote) => (
+                    <table className="poyta" key={tuote.id}>
+                        <tr>
+                            <td><h4>{tuote.nimi} </h4></td>
+                            <td><h6>Hinta: {tuote.hinta}</h6> </td>
+                            <td><h6>{tuote.tiedot} </h6></td>
+                        </tr>
+                    </table>
+                ))}
+                </div>
+                
+            </div>
+        </section>
+            
+      
+    )
+  }
+  export default Muut;

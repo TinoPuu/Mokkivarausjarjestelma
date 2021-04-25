@@ -14,6 +14,10 @@ const Hero = ({ handleLogout }) => {
   const [arvostelut, setArvostelut] = useState([]);
   const [mokkiteksti, setMokkiteksti] = useState([null]);
   const [mokkiteksti_uusi, setMokkiteksti_uusi] = useState(null)
+  const [uusituotenimi, setUusituotenimi] = useState(null);
+  const [uusituotehinta, setUusituotehinta] = useState(null);
+  const [uusituotetiedot, setUusituotetiedot] = useState(null)
+  
 
   
   const fetchMokkiteksti = async () => {
@@ -92,6 +96,34 @@ const Hero = ({ handleLogout }) => {
       });
     });
   }
+  function tuotteenlisays() {
+    projectFirestore.collection("MuutTuotteet").doc().set({
+      nimi: uusituotenimi,
+      hinta: uusituotehinta,
+      tiedot: uusituotetiedot,
+      
+    })
+      .then(() => {
+        console.log("Document successfully written!");
+      })
+      .catch((error) => {
+        console.error("Error writing document: ", error);
+      });
+    }
+
+
+    function getUusituotenimi(val) {
+      setUusituotenimi(val.target.value)
+      console.warn(val.target.value)
+    }
+    function getUusituotehinta(val) {
+      setUusituotehinta(val.target.value)
+      console.warn(val.target.value)
+    }
+    function getUusituotetiedot(val) {
+      setUusituotetiedot(val.target.value)
+      console.warn(val.target.value)
+    }
   
   useEffect(() => {
     getArvostelut();
@@ -137,14 +169,31 @@ const Hero = ({ handleLogout }) => {
             <table class="table table-bordered table-striped mb-0" key={arvostelut.id}>
               <tr>
                 <td>{arvostelut.teksti}</td>
-                <td><button onClick={() => poistaarvostelu(arvostelut.teksti)}>Poista</button></td>
                 <td><button onClick={() => hyvaksyttyarvostelu(arvostelut.teksti)}>Lisää</button></td>
+                <td><button onClick={() => poistaarvostelu(arvostelut.teksti)}>Poista</button></td>
               </tr>
             </table>
           ))}
         </div>
-
-        <div className="mokin_teksti">
+        <div className="asd">
+          <div class="grid-item">
+            <h5>Lisää uusi tuote</h5>
+            <label>Tuote</label>
+            <div class = "grid-item.nimi">
+              <input type="text" id="Nimi" onChange={getUusituotenimi} />
+              </div>
+              <label>hinta</label>
+              <div class = "grid-item.Puh">
+                <input type="text" id="Puh" onChange={getUusituotehinta} />
+              </div>
+              <label>Tiedot</label>
+              <div class = "grid-item.Osoite">
+                <input type="text" id="Aika" onChange={getUusituotetiedot} />
+              </div>
+                <button onClick={tuotteenlisays}>Lisää uusi tuote</button>
+              </div>
+            </div>
+            <div className="mokin_teksti">
           {
             <div className="mokkiteksti-container">
               <div class="grid-item">

@@ -8,8 +8,8 @@ function Varaus() {
 
   const [name, setName] = useState(null)
   const [puh, setPuh] = useState(null)
-  const [addrs, setAddrs] = useState(null)
-  const [addrs2, setAddrs2] = useState(null)
+  const [start, setStart] = useState(null)
+  const [end, setEnd] = useState(null)
 
   const [varaukset, setVaraukset] = useState([])
   const fetchVaraukset = async () => {
@@ -31,12 +31,12 @@ function Varaus() {
     setPuh(val.target.value)
     console.warn(val.target.value)
   }
-  function getAddrs(val) {
-    setAddrs(val.target.value)
+  function getEnd(val) {
+    setStart(val.target.value)
     console.warn(val.target.value)
   }
-  function getAddrs2(val) {
-    setAddrs2(val.target.value)
+  function getStart(val) {
+    setEnd(val.target.value)
     console.warn(val.target.value)
   }
 
@@ -45,8 +45,8 @@ function Varaus() {
     projectFirestore.collection("Varaukset").doc().set({
       nimi: name,
       puhelin: puh,
-      start: addrs,
-      end: addrs2
+      start: start,
+      end: end
     })
       .then(() => {
         console.log("Document successfully written!");
@@ -74,11 +74,11 @@ function Varaus() {
                   </div>
                   <label>Alkupäivämäärä</label>
                   <div class = "grid-item.Osoite">  
-                <input type="text" id="Aika" onChange={getAddrs} />
+                <input type="text" id="Aika" onChange={getStart} />
                   </div>
                   <label>Loppupäivämäärä</label>
                   <div class = "grid-item.Osoite">  
-                <input type="text" id="Aika2" onChange={getAddrs2} />
+                <input type="text" id="Aika2" onChange={getEnd} />
                   </div>
                 <button onClick={Lisays}>Tee uusi varaus</button>
               </div>
