@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../tyylit/modal.css';
 
 const Modal = ({ selectedImg, setSelectedImg }) => {
 

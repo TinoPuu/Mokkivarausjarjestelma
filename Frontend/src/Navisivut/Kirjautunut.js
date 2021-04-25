@@ -100,6 +100,7 @@ const Hero = ({ handleLogout }) => {
 
   return (
     <section className="hero">
+      <div classname="kirjautunutlaatikko">
       <h1>Varaukset</h1>
       <div class="ex1">
         <table class ="poyta">
@@ -165,6 +166,7 @@ const Hero = ({ handleLogout }) => {
       <button className= "kirjaudu-ulos" onClick={handleLogout} >
         kirjaudu ulos
       </button>
+      </div>
     </section>
   );
 };
