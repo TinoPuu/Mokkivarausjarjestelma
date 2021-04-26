@@ -16,7 +16,9 @@ const Hero = ({ handleLogout }) => {
   const [mokkiteksti_uusi, setMokkiteksti_uusi] = useState(null)
   const [uusituotenimi, setUusituotenimi] = useState(null);
   const [uusituotehinta, setUusituotehinta] = useState(null);
-  const [uusituotetiedot, setUusituotetiedot] = useState(null)
+  const [uusituotetiedot, setUusituotetiedot] = useState(null);
+  const [tuotteet, setTuotteet] = useState([]);
+  
   
 
   
@@ -79,6 +81,17 @@ const Hero = ({ handleLogout }) => {
     console.log(arvostelut);
   }
 
+  function getTuotteet(){
+    const ref = projectFirestore.collection("MuutTuotteet");
+    ref.onSnapshot((querySnapshot) => {
+        const items = [];
+        querySnapshot.forEach((doc) =>{
+          items.push(doc.data());
+        })
+        setTuotteet(items);
+  })
+}
+
   function poistavaraus(poistettavannimi){
     console.log(poistettavannimi)
     var jobskill_query = projectFirestore.collection('Varaukset').where('nimi','==',poistettavannimi);
@@ -90,6 +103,14 @@ const Hero = ({ handleLogout }) => {
   }
   function poistaarvostelu(teksti){
     var jobskill_query = projectFirestore.collection('Arvostelut').where('teksti','==',teksti);
+    jobskill_query.get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        doc.ref.delete();
+      });
+    });
+  }
+  function poistatuote(nimi){
+    var jobskill_query = projectFirestore.collection('MuutTuotteet').where('nimi','==',nimi);
     jobskill_query.get().then(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {
         doc.ref.delete();
@@ -128,6 +149,7 @@ const Hero = ({ handleLogout }) => {
   useEffect(() => {
     getArvostelut();
     getVaraukset();
+    getTuotteet()
   }, []);
 
   return (
@@ -163,6 +185,7 @@ const Hero = ({ handleLogout }) => {
         </div>
       </div>
 
+
       <div className="kalenteri">
         <EventCalendar/>
       </div>
@@ -174,6 +197,19 @@ const Hero = ({ handleLogout }) => {
                 <td>{arvostelut.teksti}</td>
                 <td><button onClick={() => hyvaksyttyarvostelu(arvostelut.teksti)}>Lisää</button></td>
                 <td><button onClick={() => poistaarvostelu(arvostelut.teksti)}>Poista</button></td>
+              </tr>
+            </table>
+          ))}
+        </div>
+        <h1>Tuotteet</h1>
+      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+          {tuotteet.map((tuotteet) => (
+            <table class="table table-bordered table-striped mb-0" key={tuotteet.id}>
+              <tr>
+                <td>{tuotteet.nimi}</td>
+                <td>{tuotteet.hinta}</td>
+                <td>{tuotteet.tiedot}</td>
+                <td><button onClick={() => poistatuote(tuotteet.nimi)}>Poista</button></td>
               </tr>
             </table>
           ))}
@@ -196,6 +232,7 @@ const Hero = ({ handleLogout }) => {
                 <button onClick={tuotteenlisays}>Lisää uusi tuote</button>
               </div>
             </div>
+            
             <div className="mokin_teksti">
           {
             <div className="mokkiteksti-container">
