@@ -83,6 +83,7 @@ function Varaus() {
       });
     }
 
+
   return (
     <div className="App">
       {
@@ -109,13 +110,13 @@ function Varaus() {
                   <div class="container">
                   
                   <div id = "textbox1">   
-                  <input type="text" placeholder="pp" id="D1" onChange={getDay1} />
+                  <input type="number" placeholder="pp" id="D1" onChange={getDay1} />
                   </div>
                   <div id = "textbox1"> 
-                  <input type="text" placeholder="kk" id="M1" onChange={getMonth1} />
+                  <input type="number" placeholder="kk" id="M1" onChange={getMonth1} />
                   </div>
                   <div id = "textbox1"> 
-                  <input type="text" placeholder="vvvv" id="Y1" onChange={getYear1} />                 
+                  <input type="number" placeholder="vvvv" id="Y1" onChange={getYear1} />                 
                   </div>
                   </div>
 
@@ -126,13 +127,13 @@ function Varaus() {
                   <div class="container">         
                   
                   <div id = "textbox2"> 
-                  <input type="text" placeholder="pp" id="D2" onChange={getDay2} />
+                  <input type="number" placeholder="pp" id="D2" onChange={getDay2} />
                   </div>
                   <div id = "textbox2">
-                  <input type="text" placeholder="kk" id="M2" onChange={getMonth2} />
+                  <input type="number" placeholder="kk" id="M2" onChange={getMonth2} />
                   </div>
                   <div id = "textbox2"> 
-                  <input type="text" placeholder="vvvv" id="Y2" onChange={getYear2} />
+                  <input type="number" placeholder="vvvv" id="Y2" onChange={getYear2} />
                   </div>      
                   </div>               
                 

@@ -7,6 +7,10 @@ body {
     text-align: center;  
 }
 
+textarea {
+   text-align: center;  
+}
+
 section{
    
    padding: 1%;
@@ -15,12 +19,12 @@ section{
 
 #textbox1{
    float: left; 
-   width: 100px;     
+   width: auto;     
 }
 
 #textbox2{
    float: left;  
-   width: 100px;      
+   width: auto;      
 }
 
 label {
