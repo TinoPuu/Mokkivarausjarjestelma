@@ -1,8 +1,9 @@
 import React, { Component, useState, useEffect } from 'react';
 import { fire, projectStorage, projectFirestore, timestamp } from "../Firebase/config";
-import varaus from '../tyylit/varaus.css';
+import '../tyylit/varaus.css';
 import '../App.css';
-import Kalenteri from "./Kalenteri";
+
+
 
 function Varaus() {
 
@@ -87,7 +88,7 @@ function Varaus() {
       {
         varaukset && varaukset.map(varaus => {
           return (
-            <div className="varaus-container">
+            <div id="varaus-container">
               <div class="grid-item">
               <h5>Tee varaus:</h5> 
                   <label>Nimi</label>
@@ -102,25 +103,45 @@ function Varaus() {
                   <div class = "grid-item.Osoite">  
                 <input type="text" id="Sposti" onChange={getSposti} />
                   </div>
+
                   <label>Alkupäivämäärä</label>
-                  <div class = "grid-item.Osoite">  
-                  <input type="text" placeholder="pp" id="Alku" onChange={getDay1} />
-                  <input type="text" placeholder="kk" id="Alku" onChange={getMonth1} />
-                  <input type="text" placeholder="vvvv" id="Alku" onChange={getYear1} />
-                  </div>
-                  <label>Loppupäivämäärä</label>
-                  <div class = "grid-item.Osoite">  
-                  <input type="text" placeholder="pp" id="Loppu" onChange={getDay2} />
-                  <input type="text" placeholder="kk" id="Loppu" onChange={getMonth2} />
-                  <input type="text" placeholder="vvvv" id="Loppu" onChange={getYear2} />
-                  </div>
+
+                  <div class="container">
                   
-                <button onClick={Lisays}>Tee uusi varaus</button>
+                  <div id = "textbox1">   
+                  <input type="text" placeholder="pp" id="D1" onChange={getDay1} />
+                  </div>
+                  <div id = "textbox1"> 
+                  <input type="text" placeholder="kk" id="M1" onChange={getMonth1} />
+                  </div>
+                  <div id = "textbox1"> 
+                  <input type="text" placeholder="vvvv" id="Y1" onChange={getYear1} />                 
+                  </div>
+                  </div>
+
+                  <br></br>
+
+                  <label >Loppupäivämäärä</label> 
+
+                  <div class="container">         
+                  
+                  <div id = "textbox2"> 
+                  <input type="text" placeholder="pp" id="D2" onChange={getDay2} />
+                  </div>
+                  <div id = "textbox2">
+                  <input type="text" placeholder="kk" id="M2" onChange={getMonth2} />
+                  </div>
+                  <div id = "textbox2"> 
+                  <input type="text" placeholder="vvvv" id="Y2" onChange={getYear2} />
+                  </div>      
+                  </div>               
+                
               </div>
-            </div>
+              <button onClick={Lisays}>Tee uusi varaus</button>
+            </div>            
           )
-        })
-      }
+        })       
+      }    
     </div>
   );
 }
