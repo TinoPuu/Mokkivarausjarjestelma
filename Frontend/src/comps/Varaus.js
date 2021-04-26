@@ -84,14 +84,15 @@ function Varaus() {
                   </div>
                   <label>Alkupäivämäärä</label>
                   <div class = "grid-item.Osoite">  
-                <input type="text" id="Alku" onChange={getStart} />
+                <input type="text" placeholder="vvvv-kk-pp" id="Alku" onChange={getStart} />
                   </div>
                   <label>Loppupäivämäärä</label>
                   <div class = "grid-item.Osoite">  
-                <input type="text" id="Loppu" onChange={getEnd} />
+                <input type="text" placeholder="vvvv-kk-pp" id="Loppu" onChange={getEnd} />
                   </div>
                   
                 <button onClick={Lisays}>Tee uusi varaus</button>
+                
               </div>
             </div>
           )
