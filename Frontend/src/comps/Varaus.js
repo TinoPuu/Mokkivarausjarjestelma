@@ -9,8 +9,12 @@ function Varaus() {
   const [name, setName] = useState(null)
   const [puh, setPuh] = useState(null)
   const [sposti, setSposti] = useState(null)
-  const [start, setStart] = useState(null)
-  const [end, setEnd] = useState(null)
+  const [day1, setDay1] = useState(null)
+  const [month1, setMonth1] = useState(null)
+  const [year1, setYear1] = useState(null)
+  const [day2, setDay2] = useState(null)
+  const [month2, setMonth2] = useState(null)
+  const [year2, setYear2] = useState(null)
   
   const [varaukset, setVaraukset] = useState([])
   const fetchVaraukset = async () => {
@@ -36,12 +40,28 @@ function Varaus() {
     setSposti(val.target.value)
     console.warn(val.target.value)
   }
-  function getEnd(val) {
-    setEnd(val.target.value)
+  function getDay1(val) {
+    setDay1(val.target.value)
     console.warn(val.target.value)
   }
-  function getStart(val) {
-    setStart(val.target.value)
+  function getMonth1(val) {
+    setMonth1(val.target.value)
+    console.warn(val.target.value)
+  }
+  function getYear1(val) {
+    setYear1(val.target.value)
+    console.warn(val.target.value)
+  }
+  function getDay2(val) {
+    setDay2(val.target.value)
+    console.warn(val.target.value)
+  }
+  function getMonth2(val) {
+    setMonth2(val.target.value)
+    console.warn(val.target.value)
+  }
+  function getYear2(val) {
+    setYear2(val.target.value)
     console.warn(val.target.value)
   }
 
@@ -51,8 +71,8 @@ function Varaus() {
       nimi: name,
       puhelin: puh,
       sposti: sposti,
-      start: start,
-      end: end
+      start: year1 +"-"+month1+"-"+day1,
+      end: year2 +"-"+month2+"-"+day2
     })
       .then(() => {
         console.log("Document successfully written!");
@@ -84,15 +104,18 @@ function Varaus() {
                   </div>
                   <label>Alkupäivämäärä</label>
                   <div class = "grid-item.Osoite">  
-                <input type="text" placeholder="vvvv-kk-pp" id="Alku" onChange={getStart} />
+                  <input type="text" placeholder="pp" id="Alku" onChange={getDay1} />
+                  <input type="text" placeholder="kk" id="Alku" onChange={getMonth1} />
+                  <input type="text" placeholder="vvvv" id="Alku" onChange={getYear1} />
                   </div>
                   <label>Loppupäivämäärä</label>
                   <div class = "grid-item.Osoite">  
-                <input type="text" placeholder="vvvv-kk-pp" id="Loppu" onChange={getEnd} />
+                  <input type="text" placeholder="pp" id="Loppu" onChange={getDay2} />
+                  <input type="text" placeholder="kk" id="Loppu" onChange={getMonth2} />
+                  <input type="text" placeholder="vvvv" id="Loppu" onChange={getYear2} />
                   </div>
                   
                 <button onClick={Lisays}>Tee uusi varaus</button>
-                
               </div>
             </div>
           )
