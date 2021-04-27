@@ -98,7 +98,7 @@ function Varaus() {
                 </div>
                   <label>Puhelinnumero</label>
                   <div class = "grid-item.Puh">  
-                <input type="text" id="Puh" onChange={getPuh} />
+                <input type="number" id="Puh" onChange={getPuh} />
                   </div>
                   <label>Sähköposti</label>
                   <div class = "grid-item.Osoite">  
