@@ -68,6 +68,25 @@ function Varaus() {
 
 
   function Lisays() {
+
+    //päivämäärän muodon varmistus
+    var tarkistus1 = day1;
+    var a1 = tarkistus1.length;
+    var tarkistus2 = month1;
+    var a2 = tarkistus2.length;
+    var tarkistus3 = year1;
+    var a3 = tarkistus3.length;
+
+    var tarkistus4 = day2;
+    var l1 = tarkistus4.length;
+    var tarkistus5 = month2;
+    var l2 = tarkistus5.length;
+    var tarkistus6 = year2;
+    var l3 = tarkistus6.length;
+
+
+    if(a1<3&&a2<3&&a3<5&&l1<3&&l2<3&&l3<5&&year1>2020&&year2>2020&&month1<13&&month2<13&&day1<32&&day2<32){
+      if(day1<day2 || (month1<month2&&day2<day1) || year1<year2){
     projectFirestore.collection("Varaukset").doc().set({
       nimi: name,
       puhelin: puh,
@@ -82,7 +101,12 @@ function Varaus() {
         console.error("Error writing document: ", error);
       });
     }
-
+    else
+    window.alert("Anna käypä ajanjakso!");
+  }
+    else
+    window.alert("Anna käyvät päivämäärät!");
+  }
 
   return (
     <div className="App">
